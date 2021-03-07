@@ -1,20 +1,17 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { View } from 'react-native';
-import Style from './styles/style';
-import Main from './src/pages/main';
+import { StatusBar } from 'react-native'
+import { NavigationContainer } from '@react-navigation/native';
 
+import Routes from './src/routes'
 
-const style = Style;
 
 export default function App() {
   return (
-    <View style={style.container}>
 
-      <Main />
-
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <StatusBar barStyle="light-content" />
+      <Routes />
+    </NavigationContainer>
   );
 }
 
