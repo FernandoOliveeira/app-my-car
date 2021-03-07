@@ -1,7 +1,8 @@
-import { Dimensions, StyleSheet } from 'react-native';
+import { Dimensions, Platform, StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
     container: {
+        paddingTop: Platform.OS === 'android' ? 25 : 0,
         flex: 1,
         backgroundColor: 'white',
         alignItems: 'center',
@@ -9,6 +10,7 @@ export default StyleSheet.create({
     },
 
     containerMain: {
+
         flex: 1,
         backgroundColor: 'white',
         alignItems: 'center',
@@ -21,7 +23,7 @@ export default StyleSheet.create({
 
     input: {
         height: 40,
-        width: (Dimensions.get('window').width / 1.5),
+        width: Platform.OS === 'android' ? (Dimensions.get('window').width * 70) / 100 : '70%',
         borderColor: 'gray',
         borderWidth: 1,
         margin: 30,

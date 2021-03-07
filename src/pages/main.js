@@ -1,6 +1,6 @@
 import React from 'react';
 import { Text, TextInput, View, TouchableOpacity } from 'react-native';
-import Style from '../styles/style'
+import Style from '../../styles/style'
 
 
 const style = Style;

@@ -2,7 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { View } from 'react-native';
 import Style from './styles/style';
-import Main from './views/main';
+import Main from './src/pages/main';
 
 
 const style = Style;
