@@ -15,11 +15,12 @@ export default StyleSheet.create({
     },
 
     input: {
-        height: 30,
+        height: 35,
         width: Platform.OS === 'android' ? (Dimensions.get('window').width * 70) / 100 : '100%',
         borderColor: 'gray',
         borderWidth: 1,
         margin: 30,
+        paddingHorizontal: 5,
         backgroundColor: 'white',
         fontSize: 20,
         borderRadius: 3,
