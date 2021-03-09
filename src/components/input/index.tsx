@@ -1,7 +1,6 @@
 import React from 'react';
 import { TextInputProps } from 'react-native';
 import { TextInput } from 'react-native-gesture-handler';
-import style from '../../../styles/style';
 import { maskDate, maskCurrency } from '../../utils/masks';
 
 
@@ -38,7 +37,6 @@ const InputMask: React.FC<InputProps> = ({ mask, inputMaskChange, ...rest }) => 
     <>
 
       <TextInput
-        style={style.input}
         onChangeText={(text) => handleChange(text)}
         {...rest}
       />
