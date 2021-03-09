@@ -6,7 +6,8 @@ export default StyleSheet.create({
         flex: 1,
         backgroundColor: 'white',
         alignItems: 'center',
-        justifyContent: 'center'
+        justifyContent: 'center',
+        paddingTop: 20
     },
 
     headerText: {
@@ -14,12 +15,16 @@ export default StyleSheet.create({
     },
 
     input: {
-        height: 40,
+        height: 30,
         width: Platform.OS === 'android' ? (Dimensions.get('window').width * 70) / 100 : '100%',
         borderColor: 'gray',
         borderWidth: 1,
         margin: 30,
-        backgroundColor: 'white'
+        backgroundColor: 'white',
+        fontSize: 20,
+        borderRadius: 3,
+
+
     },
 
     button: {
@@ -32,7 +37,6 @@ export default StyleSheet.create({
         color: '#fff',
         margin: 10,
         padding: 10
-    }
-
+    },
 
 })
