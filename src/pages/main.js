@@ -1,11 +1,8 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, ToastAndroid, TouchableOpacity, SafeAreaView } from 'react-native';
-import Style from '../../styles/style';
-import moment from 'moment';
+import style from '../../styles/style';
+import { dateValid } from '../validations/validation'
 import InputMask from '../components/input/index';
-
-
-const style = Style;
 
 
 function Main({ navigation }) {
@@ -35,14 +32,9 @@ function Main({ navigation }) {
     function submit() {
         const errorMessage = []
 
-        /* Data Validation */
-        const dateValid = moment(date.split('/').reverse().join('-'))
-
-        // Verify if some of then are empty
-        if ([dateValid, service.trim(), currency.trim()].includes("")) {
-            errorMessage.push("Todos os campos devem ser preenchidos")
+        if (!dateValid(date)) {
+            errorMessage.push("Data inválida")
         }
-
         errorMessage.forEach(value => toast(value))
 
     }
