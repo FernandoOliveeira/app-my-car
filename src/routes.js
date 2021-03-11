@@ -3,8 +3,6 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 import Main from './pages/main';
 import Maintenance from './pages/maintenance';
-import { SafeAreaView } from 'react-native';
-import style from '../styles/style';
 
 
 const Stack = createStackNavigator();

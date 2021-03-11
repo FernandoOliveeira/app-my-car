@@ -2,11 +2,11 @@ import moment from 'moment';
 
 function dateValid(date) {
 
-  let isValid = true;
+  let isValid = false;
 
   if (date.length < 10) {
 
-    isValid = false;
+    // Invalid input Length 
     return isValid;
 
   }
@@ -15,10 +15,13 @@ function dateValid(date) {
     const dateCheck = dateFormat.isValid()
 
     if (dateCheck) {
+      // Date Format is valid
+      isValid = true;
       return isValid;
     }
 
-    isValid = false;
+    // Date format is not valid
+    isValid;
     return isValid;
   }
 

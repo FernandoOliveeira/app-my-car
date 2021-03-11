@@ -33,8 +33,18 @@ function Main({ navigation }) {
         const errorMessage = []
 
         if (!dateValid(date)) {
-            errorMessage.push("Data inválida")
+            errorMessage.push("Data inválida");
         }
+        const dateDb = date.split('/').reverse().join('-');
+        const serviceDb = service;
+        const currencyDb = currency;
+        console.log({
+            dateDb,
+            serviceDb,
+            currencyDb
+        });
+
+
         errorMessage.forEach(value => toast(value))
 
     }
