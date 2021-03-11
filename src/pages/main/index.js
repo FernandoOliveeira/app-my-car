@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, ToastAndroid, TouchableOpacity, SafeAreaView } from 'react-native';
-import style from '../../styles/style';
-import { dateValid } from '../validations/validation'
-import InputMask from '../components/input/index';
+import style from '../../../styles/style';
+import { dateValid } from '../../validations/validation'
+import InputMask from '../../components/input/index';
 
 
 function Main({ navigation }) {

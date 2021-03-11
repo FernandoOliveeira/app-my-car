@@ -4,7 +4,7 @@ export default StyleSheet.create({
     container: {
         // paddingTop: Platform.OS === 'android' ? 25 : 0,
         flex: 1,
-        backgroundColor: 'white',
+        backgroundColor: '#1F7A8C',
         alignItems: 'center',
         justifyContent: 'center',
         paddingTop: 20
@@ -30,7 +30,7 @@ export default StyleSheet.create({
 
     button: {
         marginTop: 30,
-        backgroundColor: 'blue',
+        backgroundColor: '#0caac9',
         borderRadius: 10
     },
 
