@@ -10,20 +10,36 @@ export default StyleSheet.create({
         paddingTop: 20
     },
 
-    headerText: {
-        fontSize: 30,
+    image: {
+        marginTop: 20,
+        marginBottom: 10,
+        width: 150,
+        height: 100,
+    },
+
+    inputView: {
+        flexDirection: 'row',
+        width: '95%',
+        height: 50,
+        marginTop: 20,
+        alignItems: 'center',
+        justifyContent: 'center',
+        borderRadius: 50,
+        backgroundColor: '#022B3A'
+    },
+
+    inputIcon: {
+        paddingLeft: 15
     },
 
     input: {
-        height: 50,
-        width: Platform.OS === 'android' ? (Dimensions.get('window').width * 70) / 100 : '100%',
-        borderColor: 'gray',
-        borderWidth: 1,
-        marginTop: 30,
-        paddingHorizontal: 5,
-        backgroundColor: 'white',
-        fontSize: 20,
-        borderRadius: 3,
+        flex: 1,
+        height: 60,
+        width: '95%',
+        borderBottomColor: 'gray',
+        paddingLeft: 10,
+        fontSize: 15,
+        color: 'white',
 
 
     },

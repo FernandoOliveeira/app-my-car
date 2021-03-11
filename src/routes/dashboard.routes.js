@@ -18,7 +18,7 @@ export default function DashboardRoutes() {
           if (route.name === 'main') {
             iconName = focused ? 'home-sharp' : 'home-outline';
           } else if (route.name === 'maintenance') {
-            iconName = focused ? 'construct-sharp' : 'construct-outline'
+            iconName = focused ? 'construct' : 'construct-outline'
           }
 
           return <Ionicons name={iconName} size={size} color={color} />
