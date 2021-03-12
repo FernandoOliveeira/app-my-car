@@ -1,37 +1,22 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, ToastAndroid, TouchableOpacity, SafeAreaView, Image } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, Image } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import logo from '../../../assets/car.png';
-import style from '../../../styles/style';
-import { dateValid } from '../../validations/validation'
+import style from '../../styles/style';
 import InputMask from '../../components/input/index';
+import { dateValid } from '../../validations/dateValidation';
+import { toast } from '../../utils/toast';
 
 
-function Main({ navigation }) {
-
-    const toast = (message) => {
-        ToastAndroid.showWithGravityAndOffset(
-            message,
-            ToastAndroid.LONG,
-            ToastAndroid.BOTTOM,
-            25,
-            50
-        );
-    };
-
-    // Take user to maintenance screen
-    function maintenanceScreen() {
-        navigation.navigate('maintenance');
-    }
+function Main() {
 
     // Input variables
     const [service, setService] = useState("")
     const [date, setDate] = useState("")
     const [currency, setCurrency] = useState("")
 
-
-    // Submit
+    // Submit 
     function submit() {
         const errorMessage = []
 
@@ -51,7 +36,6 @@ function Main({ navigation }) {
         errorMessage.forEach(value => toast(value))
 
     }
-
 
     return (
 
