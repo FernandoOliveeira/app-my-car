@@ -3,8 +3,8 @@ import { View, Text, TextInput, TouchableOpacity, Image } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import logo from '../../../assets/car.png';
-import style from '../../styles/style';
-import InputMask from '../../components/input/index';
+import style from './style';
+import InputMask from '../../components/inputMask/index';
 import { dateValid } from '../../validations/dateValidation';
 import { toast } from '../../utils/toast';
 
