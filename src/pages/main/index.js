@@ -54,6 +54,7 @@ function Main() {
                 <Ionicons name={'build-outline'} size={25} color={'white'} style={style.inputIcon} />
                 <TextInput
                     style={style.input}
+                    maxLength={50}
                     placeholder='Serviço realizado:'
                     placeholderTextColor='gray'
                     value={service}
@@ -69,6 +70,7 @@ function Main() {
                     style={style.input}
                     value={currency}
                     mask="currency"
+                    maxLength={10}
                     keyboardType='phone-pad'
                     placeholder='Preço:'
                     placeholderTextColor='gray'

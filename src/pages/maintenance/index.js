@@ -9,13 +9,7 @@ import style from './style';
 function Maintenance({ navigation }) {
     return (
         <View style={style.container}>
-            <TouchableOpacity
-                onPress={() => navigation.navigate('index')}
-                style={style.button}>
-
-                <Text style={style.buttonText}>Principal</Text>
-
-            </TouchableOpacity>
+            <Text>All maintenance in database will be showed here</Text>
         </View>
     )
 }
