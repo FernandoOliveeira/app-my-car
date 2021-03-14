@@ -1,4 +1,19 @@
 import { StyleSheet } from 'react-native';
+import styled from 'styled-components/native';
+import { LinearGradient } from 'expo-linear-gradient';
+
+
+export const Container = styled(LinearGradient).attrs({
+    colors: ['#022B3A', '#07455c'],
+    start: { x: 0, y: 0 },
+    end: { x: 1, y: 1 },
+})`
+    flex: 1;
+    background-color: #1F7A8C;
+    align-items: center;
+    justify-content: center;
+    padding-top: 20;
+`;
 
 export default StyleSheet.create({
     container: {

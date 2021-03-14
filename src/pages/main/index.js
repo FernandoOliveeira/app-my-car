@@ -3,43 +3,33 @@ import { View, Text, TextInput, TouchableOpacity, Image } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import logo from '../../../assets/car.png';
-import style from './style';
+import style, { Container } from './style';
 import InputMask from '../../components/inputMask/index';
 import { dateValid } from '../../validations/dateValidation';
 import { toast } from '../../utils/toast';
 
 
-function Main() {
+export default function Main() {
 
-    // Input variables
-    const [service, setService] = useState("")
-    const [date, setDate] = useState("")
-    const [currency, setCurrency] = useState("")
+    // Hooks
+    const [serviceInput, setService] = useState("")
+    const [dateInput, setDate] = useState("")
+    const [currencyInput, setCurrency] = useState("")
+
+    // Save data in the database
+    async function saveMaintenance(repository) {
+
+
+    }
 
     // Submit 
-    function submit() {
-        const errorMessage = []
-
-        if (!dateValid(date)) {
-            errorMessage.push("Data inválida");
-        }
-        const dateDb = date.split('/').reverse().join('-');
-        const serviceDb = service;
-        const currencyDb = currency;
-        console.log({
-            dateDb,
-            serviceDb,
-            currencyDb
-        });
-
-
-        errorMessage.forEach(value => toast(value))
-
+    async function submit() {
+        console.log({ serviceInput, dateInput, currencyInput })
     }
 
     return (
 
-        <View style={style.container}>
+        <Container>
 
             {/* Logo Image */}
             <View style={style.Logo}>
@@ -57,7 +47,7 @@ function Main() {
                     maxLength={50}
                     placeholder='Serviço realizado:'
                     placeholderTextColor='gray'
-                    value={service}
+                    value={serviceInput}
                     onChangeText={(text) => setService(text)}
 
                 />
@@ -68,7 +58,7 @@ function Main() {
                 <Ionicons name={'logo-usd'} size={25} color={'white'} style={style.inputIcon} />
                 <InputMask
                     style={style.input}
-                    value={currency}
+                    value={currencyInput}
                     mask="currency"
                     maxLength={10}
                     keyboardType='phone-pad'
@@ -84,7 +74,7 @@ function Main() {
                 <Ionicons name={'calendar-outline'} size={25} color={'white'} style={style.inputIcon} />
                 <InputMask
                     style={style.input}
-                    value={date}
+                    value={dateInput}
                     mask="date"
                     maxLength={10} // 01/01/2021
                     keyboardType='phone-pad'
@@ -94,6 +84,7 @@ function Main() {
 
                 />
             </View>
+
             {/* Button */}
             <TouchableOpacity
                 onPress={submit}
@@ -101,9 +92,7 @@ function Main() {
                 <Text style={style.buttonText}>Salvar</Text>
             </TouchableOpacity>
 
-        </View >
+        </Container>
     )
 }
 
-
-export default Main;
