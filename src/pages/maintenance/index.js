@@ -1,31 +1,18 @@
 import React from 'react';
-import { View } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity } from 'react-native';
 
 
-import style, { List } from './style';
-import Repository from '../../components/repository/index'
+import style from './style';
 
 
 
-export default function Maintenance() {
+function Maintenance({ navigation }) {
     return (
         <View style={style.container}>
-            <List
-                data={[
-                    {
-                        id: 1,
-                        service: "Serviço",
-                        price: 25.22,
-                        date: "01/01/2021"
-                    }
-                ]}
-                keyExtractor={item => String(item.id)}
-                renderItem={({ item }) => (
-                    <Repository data={item} />
-                )}
-            />
+            <Text>All maintenance in database will be showed here</Text>
         </View>
-    );
+    )
 }
 
 
+export default Maintenance;

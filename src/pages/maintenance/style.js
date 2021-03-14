@@ -1,5 +1,4 @@
 import { StyleSheet } from 'react-native';
-import styled from 'styled-components/native'
 
 export default StyleSheet.create({
     container: {
@@ -59,13 +58,3 @@ export default StyleSheet.create({
     },
 
 })
-
-export const List = styled.FlatList.attrs({
-    contentContainerStyle: { paddingHorizontal: 20 },
-    showsVerticalScrollIndicator: false
-})`
-    width: 90%;
-    margin-top: 20px;
-    margin-bottom: 5px;
-`;
-
