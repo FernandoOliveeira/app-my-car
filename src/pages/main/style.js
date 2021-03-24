@@ -15,6 +15,43 @@ export const Container = styled(LinearGradient).attrs({
     padding-top: 20px;
 `;
 
+export const InputViewService = styled.View`
+    flex-direction: row;
+    width: 95%;
+    height: 50px;
+    margin-top: 20px;
+    align-items: center;
+    justify-content: center;
+    background-color: #022B3A;
+    border-radius: 50px;
+    border: 2px solid ${props => props.focus ? '#FFF' : 'transparent'} ;
+
+`;
+export const InputViewPrice = styled.View`
+    flex-direction: row;
+    width: 95%;
+    height: 50px;
+    margin-top: 20px;
+    align-items: center;
+    justify-content: center;
+    background-color: #022B3A;
+    border-radius: 50px;
+    border: 2px solid ${props => props.focus ? '#FFF' : 'transparent'} ;
+
+`;
+export const InputViewDate = styled.View`
+    flex-direction: row;
+    width: 95%;
+    height: 50px;
+    margin-top: 20px;
+    align-items: center;
+    justify-content: center;
+    background-color: #022B3A;
+    border-radius: 50px;
+    border: 2px solid ${props => props.focus ? '#FFF' : 'transparent'} ;
+
+`;
+
 export default StyleSheet.create({
     container: {
         // paddingTop: Platform.OS === 'android' ? 25 : 0,
@@ -32,16 +69,7 @@ export default StyleSheet.create({
         height: 100,
     },
 
-    inputView: {
-        flexDirection: 'row',
-        width: '95%',
-        height: 50,
-        marginTop: 20,
-        alignItems: 'center',
-        justifyContent: 'center',
-        borderRadius: 50,
-        backgroundColor: '#022B3A'
-    },
+
 
     inputIcon: {
         paddingLeft: 15
