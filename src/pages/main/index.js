@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, Image } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, Image, Alert } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import AsyncStorage from '@react-native-community/async-storage';
+import { v1 as uuid } from 'react-native-uuid';
+
 
 import logo from '../../../assets/car.png';
 import style, { Container } from './style';
@@ -16,15 +19,27 @@ export default function Main() {
     const [dateInput, setDate] = useState("")
     const [currencyInput, setCurrency] = useState("")
 
-    // Save data in the database
-    async function saveMaintenance(repository) {
-
-
-    }
 
     // Submit 
     async function submit() {
-        console.log({ serviceInput, dateInput, currencyInput })
+
+        const values = { serviceInput, currencyInput, dateInput };
+
+        try {
+
+            const jsonValue = JSON.stringify(values);
+            await AsyncStorage.setItem(uuid(), jsonValue);
+
+            toast('Dados salvos com sucesso');
+        } catch (err) {
+            Alert(err)
+
+        }
+
+        // Clear all inputs
+        setService("");
+        setDate("");
+        setCurrency("");
     }
 
     return (
@@ -44,7 +59,7 @@ export default function Main() {
                 <Ionicons name={'build-outline'} size={25} color={'white'} style={style.inputIcon} />
                 <TextInput
                     style={style.input}
-                    maxLength={50}
+                    maxLength={100}
                     placeholder='Serviço realizado:'
                     placeholderTextColor='gray'
                     value={serviceInput}

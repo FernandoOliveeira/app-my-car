@@ -12,7 +12,7 @@ export const Container = styled(LinearGradient).attrs({
     background-color: #1F7A8C;
     align-items: center;
     justify-content: center;
-    padding-top: 20;
+    padding-top: 20px;
 `;
 
 export default StyleSheet.create({
