@@ -7,7 +7,7 @@ import { v1 as uuid } from 'react-native-uuid';
 import logo from '../../../assets/car.png';
 import style, { Container, InputViewService, InputViewPrice, InputViewDate } from './style';
 import InputMask from '../../components/inputMask/index';
-import { DismissKeyboard } from '../../components/DismissKeyboard';
+import { DismissKeyboard } from '../../components/dismissKeyboard';
 import { dateValid } from '../../validations/dateValidation';
 import { toast } from '../../utils/toast';
 

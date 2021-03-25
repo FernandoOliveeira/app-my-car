@@ -1,14 +1,16 @@
 import styled from 'styled-components/native';
 
 export const Container = styled.View`
+  min-width: 70%;
+  max-width: 90%;
   padding-top: 10px;
   padding-left: 20px;
   padding-right: 20px;
+  margin-bottom: 15px;
   padding-bottom: 20px;
   border-radius: 4px;
   background: #0caac9;
-  margin-bottom: 15px;
-  margin-right: 25px;
+  
 `;
 
 export const CustomView = styled.View`
