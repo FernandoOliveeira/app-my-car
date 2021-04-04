@@ -14,7 +14,7 @@ export default function Repository({ data }) {
 
       <CustomView>
         <Ionicons name={'logo-usd'} size={25} color={'white'} style={{ paddingRight: 3 }} />
-        <Price>{data.currencyInput}</Price>
+        <Price>{data.priceInput}</Price>
       </CustomView>
 
       <CustomView>

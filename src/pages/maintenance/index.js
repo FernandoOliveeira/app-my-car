@@ -7,7 +7,7 @@ import Repository from '../../components/repository';
 
 
 // Receive all data from Async Storage
-const jsonObject = [];
+let jsonObject = [];
 
 
 function Maintenance() {
@@ -16,7 +16,7 @@ function Maintenance() {
 
 
     useEffect(() => {
-        LoadAllKeys()
+        LoadAllKeys();
     }, [])
 
 
@@ -28,15 +28,16 @@ function Maintenance() {
 
             })
 
-            setRepositories(jsonObject)
-
         } catch (err) {
-            console.log(err)
+            console.log("GetItemErrorMessage: " + err)
         }
+
+        setRepositories(jsonObject)
     }
 
     // Load all keys from Async Storage
     const LoadAllKeys = async () => {
+        jsonObject = []; // Setting jsonObject to empty to avoid data duplication
         let keys = [];
 
         try {
@@ -47,7 +48,7 @@ function Maintenance() {
             })
 
         } catch (err) {
-            console.log(err)
+            console.log("LoadAllKeysErrorMessage: " + err)
         }
 
     }
@@ -59,7 +60,7 @@ function Maintenance() {
             <List
                 keyboardShouldPersistTaps="handled"
                 data={repositories}
-                keyExtractor={item => String(item.serviceInput)}
+                keyExtractor={item => String(item.dateInput)}
                 renderItem={({ item }) => (
                     <Repository data={item} />
                 )}

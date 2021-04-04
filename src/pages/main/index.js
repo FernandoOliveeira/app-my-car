@@ -17,7 +17,7 @@ export default function Main() {
     // Hooks
     const [serviceInput, setService] = useState("")
     const [dateInput, setDate] = useState("")
-    const [currencyInput, setCurrency] = useState("")
+    const [priceInput, setCurrency] = useState("")
 
     const [focusService, setFocusService] = useState(false);
     const [focusPrice, setFocusPrice] = useState(false);
@@ -27,7 +27,7 @@ export default function Main() {
     // Submit Function
     async function submit() {
 
-        const values = { serviceInput, currencyInput, dateInput };
+        const values = { serviceInput, priceInput, dateInput };
 
         try {
 
@@ -88,7 +88,7 @@ export default function Main() {
                     <Ionicons name={'logo-usd'} size={25} color={'white'} style={style.inputIcon} />
                     <InputMask
                         style={style.input}
-                        value={currencyInput}
+                        value={priceInput}
                         mask="currency"
                         maxLength={10}
                         keyboardType='phone-pad'
