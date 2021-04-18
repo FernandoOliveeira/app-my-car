@@ -23,6 +23,12 @@ export const List = styled.FlatList.attrs({
     margin-top: 20px;
 `;
 
+export const TotalText = styled.Text`
+    margin: 10px;
+    color: white;
+    font-size: 25px;
+`;
+
 export default StyleSheet.create({
 
     inputIcon: {
