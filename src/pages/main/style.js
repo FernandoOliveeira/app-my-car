@@ -48,7 +48,7 @@ export const InputViewDate = styled.View`
     justify-content: center;
     background-color: #022B3A;
     border-radius: 50px;
-    border: 2px solid ${props => props.focus ? '#FFF' : 'transparent'} ;
+    border: 2px solid ${props => props.focus ? '#FFF' : 'transparent'};
 
 `;
 
@@ -84,9 +84,9 @@ export default StyleSheet.create({
         paddingRight: 25,
         fontSize: 15,
         color: 'white',
-
-
     },
+
+
 
     button: {
         marginTop: 30,

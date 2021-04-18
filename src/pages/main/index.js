@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, Image, Alert, Keyboard } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import AsyncStorage from '@react-native-community/async-storage';
@@ -23,24 +23,53 @@ export default function Main() {
     const [focusPrice, setFocusPrice] = useState(false);
     const [focusDate, setFocusDate] = useState(false);
 
+    const [errorService, setErrorService] = useState(false);
+    const [errorPrice, setErrorPrice] = useState(false);
+    const [errorDate, setErrorDate] = useState(false);
+
 
     // Submit Function
     async function submit() {
 
-        const values = { serviceInput, priceInput, dateInput };
-
         try {
 
-            const jsonValue = JSON.stringify(values);
-            await AsyncStorage.setItem(uuid(), jsonValue);
+            if (!serviceInput.trim()) {
+                setErrorService(true);
+            }
+            if (!priceInput.trim()) {
+                setErrorPrice(true);
+            }
+            if (!dateInput.trim()) {
+                setErrorDate(true);
+            }
 
-            toast('Dados salvos com sucesso');
 
-            // Clear all inputs and hide keyboard
-            setService("");
-            setDate("");
-            setCurrency("");
-            Keyboard.dismiss();
+            if ([serviceInput.trim(), priceInput.trim(), dateInput.trim()].includes("")) {
+
+                toast('Todos os campos devem ser preenchidos');
+
+            }
+            else {
+                // Saves data in AsyncStorage as a JSON
+                const values = { serviceInput, priceInput, dateInput };
+                const jsonValue = JSON.stringify(values);
+                await AsyncStorage.setItem(uuid(), jsonValue);
+
+                toast('Dados salvos com sucesso');
+
+                // Clear all inputs and hide keyboard
+                setService("");
+                setDate("");
+                setCurrency("");
+
+                setErrorService(false);
+                setErrorPrice(false);
+                setErrorDate(false);
+
+                Keyboard.dismiss();
+            }
+
+
 
         } catch (err) {
             Alert(err)
@@ -67,12 +96,14 @@ export default function Main() {
                     onFocus={() => setFocusService(true)}
                     onBlur={() => setFocusService(false)}
                 >
-                    <Ionicons name={'build-outline'} size={25} color={'white'} style={style.inputIcon} />
+                    <Ionicons name={'build-outline'} size={25} color={errorService ? 'tomato' : 'white'} style={style.inputIcon} />
                     <TextInput
                         style={style.input}
+                        type="text"
+                        error={errorService}
                         maxLength={100}
                         placeholder='Serviço realizado:'
-                        placeholderTextColor='gray'
+                        placeholderTextColor={errorService ? 'tomato' : 'gray'}
                         value={serviceInput}
                         onChangeText={(text) => setService(text)}
 
@@ -82,10 +113,11 @@ export default function Main() {
                 {/* Price */}
                 <InputViewPrice
                     focus={focusPrice}
+                    error={errorPrice}
                     onFocus={() => setFocusPrice(true)}
                     onBlur={() => setFocusPrice(false)}
                 >
-                    <Ionicons name={'logo-usd'} size={25} color={'white'} style={style.inputIcon} />
+                    <Ionicons name={'logo-usd'} size={25} color={errorPrice ? 'tomato' : 'white'} style={style.inputIcon} />
                     <InputMask
                         style={style.input}
                         value={priceInput}
@@ -93,7 +125,7 @@ export default function Main() {
                         maxLength={10}
                         keyboardType='phone-pad'
                         placeholder='Preço:'
-                        placeholderTextColor='gray'
+                        placeholderTextColor={errorPrice ? 'tomato' : 'gray'}
                         inputMaskChange={(text) => setCurrency(text)}
 
                     />
@@ -102,10 +134,11 @@ export default function Main() {
                 {/* Date Input */}
                 <InputViewDate
                     focus={focusDate}
+                    error={errorDate}
                     onFocus={() => setFocusDate(true)}
                     onBlur={() => setFocusDate(false)}
                 >
-                    <Ionicons name={'calendar-outline'} size={25} color={'white'} style={style.inputIcon} />
+                    <Ionicons name={'calendar-outline'} size={25} color={errorDate ? 'tomato' : 'white'} style={style.inputIcon} />
                     <InputMask
                         style={style.input}
                         value={dateInput}
@@ -113,7 +146,7 @@ export default function Main() {
                         maxLength={10} // 01/01/2021
                         keyboardType='phone-pad'
                         placeholder='Data: dia/mês/ano'
-                        placeholderTextColor='gray'
+                        placeholderTextColor={errorDate ? 'tomato' : 'gray'}
                         inputMaskChange={(text) => setDate(text)}
 
                     />

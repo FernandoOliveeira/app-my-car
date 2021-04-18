@@ -20,11 +20,13 @@ export const List = styled.FlatList.attrs({
     showsVerticalScrollIndicator: false,
 })`
     flex: 1;
+    width: 100%;
     margin-top: 20px;
 `;
 
 export const TotalText = styled.Text`
-    margin: 10px;
+    marginTop: 10px;
+    marginBottom: -10px;
     color: white;
     font-size: 25px;
 `;
@@ -37,6 +39,7 @@ export default StyleSheet.create({
 
     button: {
         marginTop: 30,
+        marginBottom: 30,
         backgroundColor: '#0caac9',
         borderRadius: 10
     },
